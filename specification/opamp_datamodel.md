@@ -307,6 +307,8 @@ distribution:
       always_on:
         cpu_profiler:
           sampling_interval: 1001
+        memory_profiler:
+          max_memory_samples: 201
 ```
 
 Agents SHOULD be relaxed in parsing and SHOULD ignore all other values.
@@ -317,11 +319,17 @@ Agents SHOULD be relaxed in parsing and SHOULD ignore all other values.
   if it is currently running.
 * When `sampling_interval` is present, it indicates how often the profiler should
   sample.
+* When `memory_profiler` is present, it indicates that the memory profiler
+  should be started if it is not currently running.
+* When `memory_profiler` is omitted, it indicates that the memory profiler
+  should be stopped if it is currently running.
+* When `max_memory_samples` is present, it indicates the maximum number of
+  memory samples collected per minute.
 
 Agents SHOULD detect when remote configuration differs from current effective
 configuration and SHOULD alter its internal state to match remote config. In
 other words, remote config can cause the agent to start or stop the profiler or
-modify the sampling interval.
+modify profiler settings.
 
 When an agent is able to change state based on remote configuration values,
 subsequent effective configuration reports (as requested by the server)
