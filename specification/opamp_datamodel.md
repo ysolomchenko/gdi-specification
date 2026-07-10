@@ -308,7 +308,6 @@ distribution:
         cpu_profiler:
           sampling_interval: 1001
         memory_profiler:
-          max_memory_samples: 201
 ```
 
 Agents SHOULD be relaxed in parsing and SHOULD ignore all other values.
@@ -323,8 +322,6 @@ Agents SHOULD be relaxed in parsing and SHOULD ignore all other values.
   should be started if it is not currently running.
 * When `memory_profiler` is omitted, it indicates that the memory profiler
   should be stopped if it is currently running.
-* When `max_memory_samples` is present, it indicates the maximum number of
-  memory samples collected per minute.
 
 Agents SHOULD detect when remote configuration differs from current effective
 configuration and SHOULD alter its internal state to match remote config. In
