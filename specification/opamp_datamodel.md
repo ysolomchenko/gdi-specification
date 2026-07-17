@@ -312,16 +312,16 @@ distribution:
 
 Agents SHOULD be relaxed in parsing and SHOULD ignore all other values.
 
-* When `cpu_profiler` is present, it indicates that the CPU profiler should be started
+* When `cpu_profiler` is present, it indicates that the CPU profiler SHOULD be started
   if it is not currently running.
-* When `cpu_profiler` is omitted, it indicates that the CPU profiler should be stopped
+* When `cpu_profiler` is omitted, it indicates that the CPU profiler SHOULD be stopped
   if it is currently running.
-* When `sampling_interval` is present, it indicates how often the profiler should
+* When `sampling_interval` is present, it indicates how often the profiler SHOULD
   sample.
 * When `memory_profiler` is present, it indicates that the memory profiler
-  should be started if it is not currently running.
+  SHOULD be started if it is not currently running.
 * When `memory_profiler` is omitted, it indicates that the memory profiler
-  should be stopped if it is currently running.
+  SHOULD be stopped if it is currently running.
 
 Agents SHOULD detect when remote configuration differs from current effective
 configuration and SHOULD alter its internal state to match remote config. In
