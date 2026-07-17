@@ -48,6 +48,9 @@
 - Align OpAMP data model guidance with upstream `opamp-spec`.
 - Add initial data model for agent identify with OpAMP.
   [#379](https://github.com/signalfx/gdi-specification/pull/379)
+- Add support for remote config.
+  [#396](https://github.com/signalfx/gdi-specification/pull/396),
+  [#402](https://github.com/signalfx/gdi-specification/pull/402)
 
 ## [1.9.0] - 2026-04-07
 
