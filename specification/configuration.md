@@ -183,11 +183,12 @@ instance using the following environment variables:
   [`access_token_passthrough`](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/signalfxreceiver#configuration)).
   This environment variable MUST work for `otlp` and `jaeger-thrift-splunk`
   exporters.
-- [2]: The instrumentation library SHOULD NOT allow changing the setting at
-  runtime, and the initial setting SHOULD be used for the entire lifespan of
-  the application run. An instrumentation library whose profiling capability is
-  deactivated MUST NOT introduce additional profiling-based overhead. It also
-  MUST NOT emit profiling-based data.
+- [2]: The instrumentation library uses this setting as the initial profiling
+  state. When OpAMP remote configuration is enabled and accepted, remote
+  configuration takes precedence over this setting for the current process.
+  An instrumentation library whose profiling capability is deactivated MUST NOT
+  introduce additional profiling-based overhead. It also MUST NOT emit
+  profiling-based data.
 - [3]: By default, instrumentation libraries are configured to send to a local
   collector (see `OTEL_TRACES_EXPORTER` below). If `SPLUNK_REALM` is set to
   anything besides `none` then the `OTEL_EXPORTER_*_ENDPOINT` is set to an

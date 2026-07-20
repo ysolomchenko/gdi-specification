@@ -295,6 +295,13 @@ content-type is `application/yaml`.
 Agents MAY accept payloads from other `AgentRemoteConfig.AgentConfigMap` keys
 not defined in this specification.
 
+Remote configuration takes precedence over startup configuration for the
+profiling settings represented by this remote configuration schema. Startup
+configuration determines the initial profiling state until the agent accepts a
+remote configuration. After that, the accepted remote configuration is the
+authoritative source for whether profilers are running and for the profiler
+settings it contains.
+
 ### Data Format
 
 When agents receive a remote configuration with the key `splunk.remote.config` and
