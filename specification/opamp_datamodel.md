@@ -326,8 +326,8 @@ Agents SHOULD be relaxed in parsing and SHOULD ignore all other values.
   started if it is not currently running.
 * When `cpu_profiler` is omitted, it indicates that the CPU profiler SHOULD be
   stopped if it is currently running.
-* When `cpu_profiler.sampling_interval` is present, it indicates how often the
-  CPU profiler SHOULD sample.
+* When `cpu_profiler.sampling_interval` is present, it specifies the CPU
+  profiler's sampling interval in milliseconds.
 * When `cpu_profiler.sampling_interval` is omitted but `cpu_profiler` is
   present, it indicates that the CPU profiler is enabled with the default
   sampling interval.
@@ -339,8 +339,8 @@ Agents SHOULD be relaxed in parsing and SHOULD ignore all other values.
   be started if it is not currently running.
 * When `callgraphs` is omitted, it indicates that the snapshot profiler SHOULD
   be stopped if it is currently running.
-* When `callgraphs.sampling_interval` is present, it indicates how often the
-  snapshot profiler SHOULD sample call stacks.
+* When `callgraphs.sampling_interval` is present, it specifies the snapshot
+  profiler's call stack sampling interval in milliseconds.
 * When `callgraphs.sampling_interval` is omitted but `callgraphs` is present,
   it indicates that the snapshot profiler is enabled with the default sampling
   interval.
