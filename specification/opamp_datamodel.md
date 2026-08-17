@@ -306,6 +306,14 @@ remote configuration. After that, the accepted remote configuration is the
 authoritative source for whether profilers are running and for the profiler
 settings it contains.
 
+An `AgentRemoteConfig` is completely empty when its `config.config_map`
+contains no entries. When an agent receives a completely empty remote
+configuration, it MUST discard any previously accepted remote configuration
+and restore all profiling settings represented by this schema to the values
+from the initial agent configuration established at startup. The initial agent
+configuration remains authoritative until the agent accepts another non-empty
+remote configuration.
+
 ### Data Format
 
 When agents receive a remote configuration with the key `splunk.remote.config` and
