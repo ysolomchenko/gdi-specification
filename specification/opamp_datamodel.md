@@ -306,6 +306,24 @@ remote configuration. After that, the accepted remote configuration is the
 authoritative source for whether profilers are running and for the profiler
 settings it contains.
 
+### Failure Behavior
+
+If an agent cannot parse, validate, or apply a received `splunk.remote.config`
+payload, it MUST reject the entire payload and MUST continue using the profiling
+configuration that was effective immediately before the failed update. The
+failed payload MUST NOT be partially applied.
+
+If the agent previously accepted remote configurations during the current
+process lifetime, the most recently accepted configuration remains
+authoritative. Otherwise, the startup configuration remains authoritative.
+Losing the connection to the OpAMP server MUST NOT change the effective
+profiling configuration.
+
+The agent SHOULD report an unsuccessful update through
+[`AgentToServer.remote_config_status`](https://opentelemetry.io/docs/specs/opamp/#agenttoserverremote_config_status)
+with the status `FAILED`. Effective
+configuration reports MUST continue to reflect the retained configuration.
+
 ### Data Format
 
 When agents receive a remote configuration with the key `splunk.remote.config` and
