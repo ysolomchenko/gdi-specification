@@ -306,6 +306,15 @@ remote configuration. After that, the accepted remote configuration is the
 authoritative source for whether profilers are running and for the profiler
 settings it contains.
 
+Agents MUST process remote configurations in the order in which they are
+received. Agents are not responsible for detecting or correcting differences
+between the delivery order and the order in which the server sent the
+configurations. The most recently received and accepted remote configuration
+becomes authoritative, even if the server sent it before another
+configuration. For example, if the server sends configurations 1 then 2 but
+the agent receives them 2 then 1, configuration 1 is applied last and becomes
+the effective configuration.
+
 ### Data Format
 
 When agents receive a remote configuration with the key `splunk.remote.config` and
