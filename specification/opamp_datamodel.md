@@ -311,9 +311,9 @@ received. Agents are not responsible for detecting or correcting differences
 between the delivery order and the order in which the server sent the
 configurations. The most recently received and accepted remote configuration
 becomes authoritative, even if the server sent it before another
-configuration. For example, if the server sends configurations 1 then 2 but
-the agent receives them 2 then 1, configuration 1 is applied last and becomes
-the effective configuration.
+configuration. For example, if the server sends configuration 1 followed by
+configuration 2, but the agent receives them in the order 2, then 1,
+configuration 1 is applied last and becomes the authoritative configuration.
 
 ### Data Format
 
