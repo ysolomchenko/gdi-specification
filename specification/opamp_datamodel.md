@@ -321,8 +321,10 @@ configuration.
 
 The agent MUST report an unsuccessful update through
 [`AgentToServer.remote_config_status`](https://opentelemetry.io/docs/specs/opamp/#agenttoserverremote_config_status)
-with the status `FAILED`. Effective
-configuration reports MUST continue to reflect the retained configuration.
+with the status `FAILED`. Subsequent effective configuration reports MUST
+reflect the configuration actually in use after the failed update. If the
+previous configuration was fully retained, the reports MUST reflect that
+configuration.
 
 ### Data Format
 
