@@ -305,14 +305,17 @@ remote configuration. After that, the accepted remote configuration is the
 authoritative source for whether profilers are running and for the profiler
 settings it contains.
 
-Agents MUST process remote configurations in the order in which they are
-received. Agents are not responsible for detecting or correcting differences
-between the delivery order and the order in which the server sent the
-configurations. The most recently received and accepted remote configuration
-becomes authoritative, even if the server sent it before another
-configuration. For example, if the server sends configuration 1 followed by
-configuration 2, but the agent receives them in the order 2, then 1,
-configuration 1 is applied last and becomes the authoritative configuration.
+An agent receives a remote configuration when its OpAMP transport hands the
+`AgentRemoteConfig` message to the agent's remote configuration processing
+component. Agents MAY parse and validate remote configurations concurrently,
+but they MUST serialize accepting and applying them in the order received.
+For example, if configuration 1 is received and processing begins, then
+configuration 2 is received while configuration 1 is still being processed,
+the agent MUST accept and apply configuration 1 before configuration 2. Once
+both have been accepted, configuration 2 is the authoritative configuration.
+
+Agents are not responsible for detecting or correcting differences between this
+receipt order and the order in which the server sent the configurations.
 
 ### Data Format
 
