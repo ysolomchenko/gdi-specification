@@ -308,7 +308,7 @@ settings it contains.
 
 When an `AgentRemoteConfig.config.config_map` contains no
 `splunk.remote.config` entry, the agent MUST discard any previously accepted
-`splunk.remote.config` and restore all profiling settings represented by this
+`splunk.remote.config` and restore all settings represented by this
 schema to the values from the initial agent configuration established at
 startup. The initial agent configuration remains authoritative until the agent
 accepts a remote configuration containing a `splunk.remote.config` entry.
